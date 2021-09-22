@@ -1,8 +1,8 @@
 <template>
-  <div class="col-6 col-md-3 col-lg-1 m-5 p-2 prova">
+  <div id="cop" class="d-flex flex-column   align-items-center mb-2  p-1 m-1 prov1a">
       <img :src="info.poster" alt="">
-      <div>{{info.title}}</div>
-      <div>{{info.author}}</div>
+      <div  >{{info.title}}</div>
+      <div class="mb-3">{{info.author}}</div>
       <div>{{info.year}}</div>
   </div>
 </template>
@@ -19,7 +19,11 @@ export default {
     img{
         width: 100px;
     }
-    .prova{
+    .prov1a{
     background-color: darkolivegreen;
+}
+#cop{
+    width: calc(20% - 15px);
+    height: 250px;
 }
 </style>

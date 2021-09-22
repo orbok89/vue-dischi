@@ -1,11 +1,13 @@
 <template>
-  <div>
-     <div class="container">
-         <div class="row text-center  p-3 m-5 ">
-             <Copertina v-for="(disco, index) in array_dischi " :key="index" :info="disco"/>
-         </div>
-     </div>
+  <div class="container">
+      <div class="d-flex flex-wrap mt-3" id="prova">
+     <!-- <div v-for="(disco, index) in array_dischi " :key="index"      >  -->
+    <Copertina v-for="(disco, index) in array_dischi " :key="index"  :info="disco"/>
+    </div>
   </div>
+  <!-- </div> -->
+           
+         
 </template>
 
 <script>
@@ -41,5 +43,8 @@ export default {
 
 <style  scoped lang="scss">
 @import '~bootstrap/scss/bootstrap';
-
+#prova{
+    width: 80%;
+    margin: 0 auto; 
+}
 </style>
