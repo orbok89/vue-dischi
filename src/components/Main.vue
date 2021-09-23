@@ -23,19 +23,38 @@ export default {
     data(){
         return{
             url_dishi:'https://flynn.boolean.careers/exercises/api/array/music',
-            array_dischi:[]
+            array_dischi:[],
+            array_generi_singoli:[],
+            prova: ''
         }
     },
-    created() {
+    mounted() {
         this.get_disk();
+        
 
     },
     methods:{
+        get_vettore_generi(){
+            for (let i = 0; i< this.array_dischi.length; i++){
+                if (!this.array_generi_singoli.includes(this.array_dischi[i].genre)){
+                    this.array_generi_singoli.push(this.array_dischi[i].genre)
+                }
+            }
+        },
+
         get_disk(){
-            axios.get(this.url_dishi).then(res =>
-            this.array_dischi=res.data.response
-            )
+            axios.get(this.url_dishi).then(res =>{
+                this.array_dischi=res.data.response;
+                this.get_vettore_generi(); 
+            }
+            
+            );
+            
+
+           
+            
         }
+       
     }
 
 }
@@ -47,4 +66,5 @@ export default {
     width: 80%;
     margin: 0 auto; 
 }
+
 </style>

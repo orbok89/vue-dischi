@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     
-    <Header />
-    <Main/>
+    <Header @filtro="prova_filtro" />
+    <Main />
   </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
   components: {
     Header,
     Main
+  },
+  methods:{
+    prova_filtro(){
+      console.log( 'ciao')
+    }
   }
 }
 </script>
