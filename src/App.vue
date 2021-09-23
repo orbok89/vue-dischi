@@ -2,7 +2,8 @@
   <div id="app">
     
     <Header @filtro="prova_filtro" />
-    <Main />
+    <Main :items="filtro_genere"/>
+    
   </div>
 </template>
 
@@ -16,9 +17,14 @@ export default {
     Header,
     Main
   },
+  data(){
+    return{
+      filtro_genere:''
+    }
+  },
   methods:{
-    prova_filtro(){
-      console.log( 'ciao')
+    prova_filtro(genere){
+      this.filtro_genere=genere
     }
   }
 }

@@ -24,8 +24,8 @@ export default {
     }
   },
   methods:{
-    prova(){
-      console.log('ciao')
+    prova(genere){
+      console.log(genere)
     }
   }
   

@@ -2,7 +2,7 @@
   <div class="container">
       <div class="d-flex flex-wrap mt-3" id="prova">
      <!-- <div v-for="(disco, index) in array_dischi " :key="index"      >  -->
-    <Copertina v-for="(disco, index) in array_dischi " :key="index"  :info="disco"/>
+    <Copertina v-for="(disco, index) in metodo_finale() " :key="index"  :info="disco"/>
     </div>
   </div>
   <!-- </div> -->
@@ -25,7 +25,8 @@ export default {
             url_dishi:'https://flynn.boolean.careers/exercises/api/array/music',
             array_dischi:[],
             array_generi_singoli:[],
-            prova: ''
+            prova: '',
+            genere_filtrato:''
         }
     },
     mounted() {
@@ -46,16 +47,22 @@ export default {
             axios.get(this.url_dishi).then(res =>{
                 this.array_dischi=res.data.response;
                 this.get_vettore_generi(); 
+            });
+        },
+        metodo_finale(){
+            if (this.items == ''){
+                return this.array_dischi
             }
-            
-            );
-            
-
-           
-            
+            let filteredList = this.array_dischi.filter( Element => {
+            return Element.genre.toLowerCase().includes(this.items.toLowerCase());
+      })
+      console.log(filteredList)
+      return filteredList;
+        
         }
        
-    }
+    },
+    props:['items']
 
 }
 </script>
